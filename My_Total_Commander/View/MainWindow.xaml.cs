@@ -1,4 +1,5 @@
-﻿using System;
+﻿using My_Total_Commander.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,14 @@ namespace My_Total_Commander
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new ModelView();
+            listbox.MouseDoubleClick += Listbox_MouseDoubleClick;
+           
+          
         }
+
+        private void Listbox_MouseDoubleClick(object sender, MouseButtonEventArgs e) => (DataContext as ModelView).Select();
+        private void Button_Back_Click(object sender, RoutedEventArgs e)=>(DataContext as ModelView).Back();
+
     }
 }
