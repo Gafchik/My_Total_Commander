@@ -26,12 +26,16 @@ namespace My_Total_Commander
             InitializeComponent();
             DataContext = new ModelView();
             listbox.MouseDoubleClick += Listbox_MouseDoubleClick;
-           
-          
+            current_Path.TextChanged += Current_Path_TextChanged;
+
+
         }
 
-        private void Listbox_MouseDoubleClick(object sender, MouseButtonEventArgs e) => (DataContext as ModelView).Select();
-        private void Button_Back_Click(object sender, RoutedEventArgs e)=>(DataContext as ModelView).Back();
+        private void Current_Path_TextChanged(object sender, TextChangedEventArgs e) => (DataContext as ModelView).InitializeComponen(current_Path.Text);
 
+
+
+        private void Listbox_MouseDoubleClick(object sender, MouseButtonEventArgs e) => (DataContext as ModelView).Select.Execute(sender);
+      
     }
 }

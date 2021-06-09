@@ -18,16 +18,20 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
      
-            <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Background="BlueViolet" >
-                <Button Content="Назат"  Margin="5" Click="Button_Back_Click"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Background="BlueViolet" >
+            <Button Content="Назад"  Margin="5" Command="{Binding Back}"/>
                 <TextBlock Text="Текущий Диск :"  Margin="5"/>
                 <ComboBox  ItemsSource="{Binding Disks}"  Margin="5" Width="50"
                   SelectedItem="{Binding Selected_Disk}"/>
+            <Button Content="Удалить"  Margin="5" Command="{Binding Dell}"/>
+            <Button Content="Копировать"  Margin="5" Command="{Binding Copy}"/>
+            <Button Content="Вставить"  Margin="5" Command="{Binding Paste}"/>
+            <Button Content="Новая папка"  Margin="5" Command="{Binding New_Folder}"/>
 
             </StackPanel>
 
        
-            <TextBlock Background="Aqua" Text="{Binding Current_Puth}" FontSize="14" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="current_Path" Background="Aqua" Text="{Binding Current_Puth}" FontSize="14" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
         <ListBox Grid.Row="2" x:Name="listbox"  ItemsSource="{Binding Items}" Grid.ColumnSpan="2" Background="GreenYellow"
                Grid.Column="0" Grid.RowSpan="2"    SelectedItem="{Binding Selected_Item}"/>
