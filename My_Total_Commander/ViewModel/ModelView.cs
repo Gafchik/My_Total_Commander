@@ -120,7 +120,7 @@ namespace My_Total_Commander.ViewModel
         }
 
 
-
+        // команда возврата по меню
         private RelayCommand back;
         public RelayCommand Back
         {
@@ -213,18 +213,6 @@ namespace My_Total_Commander.ViewModel
                              if (item == Current_Puth)
                                  return;
                          }
-
-
-                        
-                        IDataObject iData = Clipboard.GetDataObject();
-
-                         // Determines whether the data is in a format you can use.
-                         if (iData.GetDataPresent(DataFormats.FileDrop))
-                         {
-                             
-                            File.Create(iData.GetData(DataFormats.FileDrop).ToString());
-                         }
-                            InitializeComponen(Current_Puth);
                          Buffer.Clear();
                        
                       
@@ -250,7 +238,6 @@ namespace My_Total_Commander.ViewModel
                             if (item == Current_Puth)
                                 return;
                         }
-
                         var win = new New_Folder(Current_Puth);
                         win.ShowDialog();
                         InitializeComponen(Current_Puth);
