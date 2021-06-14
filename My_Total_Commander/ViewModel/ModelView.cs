@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
-using System.Windows.Media.Imaging;
-using System.Drawing;
-using System.Windows.Controls;
 using My_Total_Commander.View.ViewModel;
 using System.Collections.Specialized;
 using System.Windows;
