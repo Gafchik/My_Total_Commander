@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:My_Total_Commander"
-        mc:Ignorable="d" 
-        Title="My Total Commander" Height="450" Width="650">
+        mc:Ignorable="d"  ResizeMode="NoResize"
+        Title="My Total Commander" Height="450" Width="700">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -24,15 +24,16 @@
                 <ComboBox  ItemsSource="{Binding Disks}"  Margin="5" Width="50"
                   SelectedItem="{Binding Selected_Disk}"/>
             <Button Content="Удалить"  Margin="5" Command="{Binding Dell}"/>
-            <Button Content="Копировать"  Margin="5" Command="{Binding Copy}"/>
+            <Button Content="Вырезать"  Margin="5" Command="{Binding Cut}"/>
             <Button Content="Вставить"  Margin="5" Command="{Binding Paste}"/>
             <Button Content="Новая папка"  Margin="5" Command="{Binding New_Folder}"/>
             <Button Content="Переименовать"  Margin="5" Command="{Binding ReName}"/>
+            <Button x:Name="UpData" Content="Обновить"  Margin="5" />
 
             </StackPanel>
 
        
-            <TextBox x:Name="current_Path" Background="Aqua" Text="{Binding Current_Puth}" FontSize="14" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+            <TextBlock  x:Name="current_Path" Background="Aqua" Text="{Binding Current_Puth}" FontSize="14" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
         <ListBox Grid.Row="2" x:Name="listbox"  ItemsSource="{Binding Items}" Grid.ColumnSpan="2" Background="GreenYellow"
            FontSize="20"    Grid.Column="0" Grid.RowSpan="2"    SelectedItem="{Binding Selected_Item}"/>

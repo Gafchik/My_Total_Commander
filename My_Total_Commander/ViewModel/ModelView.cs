@@ -182,12 +182,12 @@ namespace My_Total_Commander.ViewModel
             }
         }
 
-        private RelayCommand copy;
-        public RelayCommand Copy
+        private RelayCommand сut;
+        public RelayCommand Cut
         {
             get
             {
-                return copy ?? (copy = new RelayCommand(act =>
+                return сut ?? (сut = new RelayCommand(act =>
                  {
                      if (Selected_Item != null)
                      {
@@ -229,8 +229,33 @@ namespace My_Total_Commander.ViewModel
                          }
                          
                        Buffer =  Clipboard.GetFileDropList();
+                         for (int i = 0; i < Buffer.Count; i++)
+                         {
+                             if (Directory.Exists(Buffer[i]))
+                             {
+                                 string folder_name = string.Empty;
+                                 for (int j = Buffer[i].LastIndexOf('\\'); j < Buffer[i].Length; j++)
+                                 {                                   
+                                     folder_name += Buffer[i][j];
+                                 }
+                                 Directory.Move(Buffer[i], Current_Puth + '\\' + folder_name);
+                                 InitializeComponen(Current_Puth);
+                                 
+                             }
+                             if (File.Exists(Buffer[i]))
+                             {
+                                 string file_name = string.Empty;
+                                 for (int j = Buffer[i].LastIndexOf('\\'); j < Buffer[i].Length; j++)
+                                 {
+                                     file_name += Buffer[i][j];
+                                 }
+                                 Directory.Move(Buffer[i], Current_Puth + '\\' + file_name);
+                                 InitializeComponen(Current_Puth);
 
-                         
+                             }
+                         }
+                       
+
 
 
                      }
