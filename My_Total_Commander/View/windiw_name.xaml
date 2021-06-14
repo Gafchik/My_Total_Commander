@@ -1,4 +1,4 @@
-﻿<Window x:Class="My_Total_Commander.View.New_Folder"
+﻿<Window x:Class="My_Total_Commander.View.windiw_name"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,6 +9,6 @@
         Title="Новая папка" Height="150" Width="550">
     <StackPanel Orientation="Horizontal" Background="GreenYellow">
         <TextBox x:Name="Name" Margin="10 20" Width="400" FontSize="30"/>
-        <Button  Margin="10 30" Content="Добавить" Click="Button_Click"/>
+        <Button x:Name="btn" Margin="10 30" Content="Добавить" />
     </StackPanel>
 </Window>

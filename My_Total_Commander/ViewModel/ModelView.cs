@@ -165,9 +165,7 @@ namespace My_Total_Commander.ViewModel
                         {
                             string path = Selected_Item;
                             path = path.Remove(path.IndexOf('['), 1);
-                            path = path.Remove(path.IndexOf(']'), 1);
-                            if (Current_Puth[Current_Puth.Length - 1] != '\\')
-                                Current_Puth += '\\';
+                            path = path.Remove(path.IndexOf(']'), 1);                          
                             Directory.Delete(Current_Puth + '\\' + path);
                             InitializeComponen(Current_Puth);
                         }
@@ -199,6 +197,7 @@ namespace My_Total_Commander.ViewModel
                  }));
             }
         }
+       
         private RelayCommand paste;
         public RelayCommand Paste
         {
@@ -222,8 +221,6 @@ namespace My_Total_Commander.ViewModel
             }
         }
 
-
-
         private RelayCommand new_folder;
         public RelayCommand New_Folder
         {
@@ -238,7 +235,26 @@ namespace My_Total_Commander.ViewModel
                             if (item == Current_Puth)
                                 return;
                         }
-                        var win = new New_Folder(Current_Puth);
+                        var win = new windiw_name(Current_Puth);
+                        win.ShowDialog();
+                        InitializeComponen(Current_Puth);
+
+                    }
+                }));
+            }
+        }
+        
+        private RelayCommand rename;
+        public RelayCommand ReName
+        {
+            get
+            {
+                return rename ?? (rename = new RelayCommand(act =>
+                {
+                    if (Selected_Item != null)
+                    {
+                        
+                        var win = new windiw_name(Current_Puth,Selected_Item);
                         win.ShowDialog();
                         InitializeComponen(Current_Puth);
 

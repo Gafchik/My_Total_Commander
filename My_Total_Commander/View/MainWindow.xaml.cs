@@ -32,9 +32,6 @@ namespace My_Total_Commander
         }
 
         private void Current_Path_TextChanged(object sender, TextChangedEventArgs e) => (DataContext as ModelView).InitializeComponen(current_Path.Text);
-
-
-
         private void Listbox_MouseDoubleClick(object sender, MouseButtonEventArgs e) => (DataContext as ModelView).Select.Execute(sender);
       
     }

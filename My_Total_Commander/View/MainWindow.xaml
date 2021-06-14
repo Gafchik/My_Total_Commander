@@ -27,6 +27,7 @@
             <Button Content="Копировать"  Margin="5" Command="{Binding Copy}"/>
             <Button Content="Вставить"  Margin="5" Command="{Binding Paste}"/>
             <Button Content="Новая папка"  Margin="5" Command="{Binding New_Folder}"/>
+            <Button Content="Переименовать"  Margin="5" Command="{Binding ReName}"/>
 
             </StackPanel>
 
@@ -34,7 +35,7 @@
             <TextBox x:Name="current_Path" Background="Aqua" Text="{Binding Current_Puth}" FontSize="14" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
         <ListBox Grid.Row="2" x:Name="listbox"  ItemsSource="{Binding Items}" Grid.ColumnSpan="2" Background="GreenYellow"
-               Grid.Column="0" Grid.RowSpan="2"    SelectedItem="{Binding Selected_Item}"/>
+           FontSize="20"    Grid.Column="0" Grid.RowSpan="2"    SelectedItem="{Binding Selected_Item}"/>
 
     </Grid>
 </Window>
