@@ -165,8 +165,16 @@ namespace My_Total_Commander.ViewModel
                         {
                             string path = Selected_Item;
                             path = path.Remove(path.IndexOf('['), 1);
-                            path = path.Remove(path.IndexOf(']'), 1);                          
+                            path = path.Remove(path.IndexOf(']'), 1);
+                            try
+                            {
                             Directory.Delete(Current_Puth + '\\' + path);
+                            }
+                            catch (IOException)
+                            {
+                                MessageBox.Show("Папка не пуста", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Information);
+                                return;
+                            }
                             InitializeComponen(Current_Puth);
                         }
                         else
@@ -189,8 +197,21 @@ namespace My_Total_Commander.ViewModel
                  {
                      if (Selected_Item != null)
                      {
-                         Buffer.Add(Current_Puth + '\\' + Selected_Item);
-                         Clipboard.SetFileDropList(Buffer);
+                         if (Selected_Item[0] == '[')
+                         {
+                             string path = Selected_Item;
+                             path = path.Remove(path.IndexOf('['), 1);
+                             path = path.Remove(path.IndexOf(']'), 1);
+                             Buffer.Add(Current_Puth + '\\' + path);
+                             Clipboard.SetFileDropList(Buffer);
+                             Buffer.Clear();
+                         }
+                         else
+                         {
+                             Buffer.Add(Current_Puth + '\\' + Selected_Item);
+                             Clipboard.SetFileDropList(Buffer);
+                             Buffer.Clear();
+                         }
                          MessageBox.Show("Скопировано в буфер обмена", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                      }
                  
@@ -212,9 +233,11 @@ namespace My_Total_Commander.ViewModel
                              if (item == Current_Puth)
                                  return;
                          }
-                         Buffer.Clear();
-                       
-                      
+                         
+                       Buffer =  Clipboard.GetFileDropList();
+
+                         
+
 
                      }
                  }));
